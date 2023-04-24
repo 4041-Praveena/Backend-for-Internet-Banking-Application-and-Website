@@ -1,0 +1,57 @@
+@import '../../assets/styles/variables';
+
+.Navigation {
+  @include bank-shadow;
+  width: 20%;
+  height: 100%;
+  background: $bank-primary-blue;
+  background:linear-gradient(0deg, rgba(10,171,252,1) 0%, rgba(40,10,242,1) 100%);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  @media(max-width: $lg){
+    width:50%;
+    position: fixed;
+    z-index: 99;
+    transform: translateX(-105%);
+    transition: all 0.3s;
+
+    &.show{
+      transform: translateX(0%);
+    }
+  }
+
+  .close-icon{
+    display: none;
+    @media(max-width: $lg){
+      display: block;
+      position: fixed;
+      top:10px;
+      left: 10px;
+    }
+  }
+
+  &__logo{
+    background: #fff;
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    align-items:center;
+  }
+  &__menu{
+    margin-top: 40px;
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    height: unset;
+    ul{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .activeLink{
+        background-color: rgba(0,0,0,0.1);
+      }
+    }
+  }
+}
